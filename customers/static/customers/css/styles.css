@@ -1,0 +1,33 @@
+body {
+    background-color: #191A19;
+    color: #D8E9A8;
+    font-family: 'Arial', sans-serif;
+}
+
+h2, h3 {
+    color: #4E9F3D;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #4E9F3D;
+    color: #D8E9A8;
+}
+
+.form-label {
+    font-size: 1.1rem;
+}
+
+button:hover {
+    background-color: #1E5128 !important;
+    color: #D8E9A8 !important;
+}
+
+footer {
+    background-color: #191A19;
+    color: #D8E9A8;
+    padding: 20px;
+}

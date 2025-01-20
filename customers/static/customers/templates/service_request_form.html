@@ -1,0 +1,30 @@
+{% extends 'customers/base.html' %}
+
+{% block content %}
+    <h2 class="text-light">Submit Service Request</h2>
+    <form method="post" class="mt-4" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="service_type" class="form-label">Service Type</label>
+            <select id="service_type" name="service_type" class="form-select">
+                <option value="Gas Leak">Gas Leak</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Installation">Installation</option>
+                <option value="Billing Issue">Billing Issue</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="details" class="form-label">Request Details</label>
+            <textarea id="details" name="details" class="form-control" rows="4" placeholder="Provide additional details for your request."></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="attachments" class="form-label">Attach Files (optional)</label>
+            <input type="file" id="attachments" name="attachments" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-light mt-3" style="background-color: #4E9F3D; color: #D8E9A8;">Submit Request</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+body {
+    background-color: #191A19;
+    color: #D8E9A8;
+    font-family: 'Arial', sans-serif;
+}
+
+h2, h3 {
+    color: #4E9F3D;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+table {
+    border: 1px solid #1E5128;
+}
+
+thead {
+    background-color: #1E5128;
+}
+
+th, td {
+    color: #D8E9A8;
+}
+
+footer {
+    background-color: #191A19;
+    color: #D8E9A8;
+    padding: 20px;
+}
