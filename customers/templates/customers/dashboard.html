@@ -1,9 +1,10 @@
 {% extends 'customers/base.html' %}
+{% load static %}
 
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<div class="dashboard">
+<div class="dashboard-content"> <!-- Use dashboard-content for proper alignment -->
     <h2 class="requests-title">Your Requests</h2>
     
     <div class="requests-container">
@@ -25,9 +26,8 @@
             {% endif %}
         </div>
 
-        <!-- Submit a New Request Card -->
-        <div class="submit-request-card">
-            <h3>Submit a New Request</h3>
+        <!-- Submit a New Request Button -->
+        <div class="submit-request-button">
             <a href="{% url 'submit_request' %}" class="btn">New Request</a>
         </div>
     </div>

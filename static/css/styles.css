@@ -27,24 +27,27 @@ body {
 }
 
 .main-content {
-    display: flex;
-    align-items: center; /* Align items to the start */
-    justify-content: center; /* Center items horizontally */
-    height: 100vh; /* Full viewport height */
-    flex-direction: column; /* Change to row for side-by-side layout */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 20px; /* Add some padding */
 }
+
 
 .image-slide {
     margin-top: -100px;
-    width: 50%; /* Adjust width as needed */
+    width: 100%; /* Adjust width as needed */
+    max-width: 600px; /* Set a max width for larger screens */  
     animation: slideInImage 1s forwards; /* Adjusted duration */
 }
 
 .description-box {
     background-color: #1E5128;
     padding: 20px;
-    margin: -75px;
-    width: 30%; /* Adjust width as needed */
+    margin-top: 20px; /* Space above description box */
+    width: 100%; /* Full width for the description box */
+    max-width: 600px; /* Set a max width for larger screens */
     border-radius: 15px;
     border: 2px solid #4E9F3D;
     animation: slideInDescription 1s forwards; /* Adjusted duration */
@@ -52,59 +55,8 @@ body {
 
 h1 {
     text-align: center; /* Center the title */
+    justify-content: center;
     margin-top: 35px; /* Margin for spacing */
-}
-
-.dashboard {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the left */
-}
-
-.requests-title {
-    margin-bottom: 20px; /* Space below title */
-}
-
-.requests-container {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between requests and submit card */
-    width: 100%; /* Full width */
-}
-
-.request-card {
-    background-color: #1E5128; /* Background color for each request */
-    color: #D8E9A8; /* Text color */
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-}
-.submit-request-card {
-    background-color: #1E5128; /* Card background color */
-    color: #D8E9A8; /* Text color */
-    padding: 20px;
-    border-radius: 10px;
-    width: 25%; /* Adjust width as needed */
-    text-align: center; /* Center text in card */
-}
-
-.submit-request-card .btn {
-    margin-top: 10px; /* Space above button */
-}
-
-.status-box {
-    background-color: #1E5128;
-    padding: 20px;
-    width: 60%;
-    margin: auto;
-    border-radius: 15px;
-}
-
-.request-form {
-    width: 60%;
-    margin: auto;
-    background-color: #1E5128;
-    padding: 20px;
-    border-radius: 15px;
 }
 
 @keyframes slideInImage {
@@ -117,7 +69,6 @@ h1 {
         opacity: 1; /* Fade in */
     }
 }
-
 @keyframes slideInDescription {
     0% {
         transform: translateX(100%); /* Start off-screen right */
@@ -174,3 +125,69 @@ h1 {
 .error-message {
     color: #FF4C4C; /* Red color for error messages */
 }
+
+.dashboard-content {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px; /* Add padding around the content */
+}
+
+.requests-title {
+    margin-bottom: 20px; /* Space below title */
+    text-align: left; /* Align title to the left */
+}
+
+.requests-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between requests and submit button */
+    width: 100%; /* Full width */
+}
+
+.request-list {
+    display: flex;
+    flex-direction: column; /* Arrange requests in a column */
+    width: 70%; /* Adjust width as needed */
+}
+
+.request-card {
+    background-color: #1E5128; /* Background color for each request */
+    color: #D8E9A8; /* Text color */
+    padding: 10px;
+    height: 100px;
+    margin-bottom: 30px; /* Space between cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+.request-card .btn {
+    background-color: #4E9F3D; /* Button background color */
+    color: #D8E9A8; /* Button text color */
+    border: none; /* Remove border */
+    padding: 3px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* New Request Button Styles */
+.submit-request-button {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align button to the right */
+    width: 10%; /* Use full width of the parent container */
+    height: 20%;
+}
+
+.submit-request-button .btn {
+    background-color: #4E9F3D; /* Button background color for new request */
+    color: #D8E9A8; /* Button text color */
+    border: none; /* Remove border */
+    padding: 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Optional hover effect for better UX */
+.submit-request-button .btn:hover {
+    background-color: #1E5128; /* Darker shade on hover */
+}
+
