@@ -1,0 +1,35 @@
+{% extends 'customers/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2 class="requests-title">Your Requests</h2>
+    
+    <div class="requests-container">
+        <div class="request-list">
+            {% if requests %}
+                {% for request in requests %}
+                    <div class="request-card">
+                        <strong>Request Type:</strong> {{ request.request_type }}<br>
+                        <strong>Status:</strong> {{ request.status }}<br>
+                        <strong>Submitted On:</strong> {{ request.created_at|date:"Y-m-d H:i" }}<br>
+                        {% if request.attachment %}
+                            <strong>Attachment:</strong> <a href="{{ request.attachment.url }}" target="_blank">View Attachment</a><br>
+                        {% endif %}
+                        <a href="{% url 'request_status' request.id %}" class="btn">View Details</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>You have no requests submitted yet.</p>
+            {% endif %}
+        </div>
+
+        <!-- Submit a New Request Card -->
+        <div class="submit-request-card">
+            <h3>Submit a New Request</h3>
+            <a href="{% url 'submit_request' %}" class="btn">New Request</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'customers/base.html' %}
+
+{% block title %}Gas Utility - Homepage{% endblock %}
+{% load static %}
+
+{% block content %}
+<h1>Gas&Co.</h1> <!-- Add the title here -->
+<div class="main-content"> <!-- Wrap content in a main-content div -->
+    <div class="image-slide">
+        <img src="{% static 'images/lit.png' %}" alt="Service Image" style="width: 100%; height:auto;"> <!-- Make image responsive -->
+    </div>
+    
+    <div class="description-box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras euismod, orci et varius fermentum, nunc nisi aliquet felis, eget vehicula neque nisi ac nunc.</p>
+    </div>
+</div>
+{% endblock %}

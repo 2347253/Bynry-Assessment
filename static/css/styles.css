@@ -1,0 +1,176 @@
+body {
+    background-color: #191A19;
+    color: #D8E9A8;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .btn {
+    background-color: #191A19;
+    color: #D8E9A8;
+    border: 2px solid #1E5128;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.navbar .btn:hover {
+    background-color: #1E5128;
+    border-color: #4E9F3D;
+}
+
+.main-content {
+    display: flex;
+    align-items: center; /* Align items to the start */
+    justify-content: center; /* Center items horizontally */
+    height: 100vh; /* Full viewport height */
+    flex-direction: column; /* Change to row for side-by-side layout */
+}
+
+.image-slide {
+    margin-top: -100px;
+    width: 50%; /* Adjust width as needed */
+    animation: slideInImage 1s forwards; /* Adjusted duration */
+}
+
+.description-box {
+    background-color: #1E5128;
+    padding: 20px;
+    margin: -75px;
+    width: 30%; /* Adjust width as needed */
+    border-radius: 15px;
+    border: 2px solid #4E9F3D;
+    animation: slideInDescription 1s forwards; /* Adjusted duration */
+}
+
+h1 {
+    text-align: center; /* Center the title */
+    margin-top: 35px; /* Margin for spacing */
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.requests-title {
+    margin-bottom: 20px; /* Space below title */
+}
+
+.requests-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between requests and submit card */
+    width: 100%; /* Full width */
+}
+
+.request-card {
+    background-color: #1E5128; /* Background color for each request */
+    color: #D8E9A8; /* Text color */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+.submit-request-card {
+    background-color: #1E5128; /* Card background color */
+    color: #D8E9A8; /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+    width: 25%; /* Adjust width as needed */
+    text-align: center; /* Center text in card */
+}
+
+.submit-request-card .btn {
+    margin-top: 10px; /* Space above button */
+}
+
+.status-box {
+    background-color: #1E5128;
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.request-form {
+    width: 60%;
+    margin: auto;
+    background-color: #1E5128;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+@keyframes slideInImage {
+    0% {
+        transform: translateX(-100%); /* Start off-screen left */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateX(0); /* End at original position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+@keyframes slideInDescription {
+    0% {
+        transform: translateX(100%); /* Start off-screen right */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateX(0); /* End at original position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+.form-container {
+    background-color: #1E5128; /* Match the description box color */
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #4E9F3D;
+    width: 40%; /* Adjust width as needed */
+    margin: auto; /* Center the form on the page */
+}
+
+.form-container h2 {
+    text-align: center; /* Center the heading */
+    color: #D8E9A8; /* Match text color */
+}
+
+.form-container button {
+    width: 15%; /* Make button full width */
+}
+
+/* Optional styles for form fields */
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 80%; /* Full width for inputs */
+    padding: 10px; /* Padding for comfort */
+    margin-bottom: 15px; /* Space between fields */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #4E9F3D; /* Border color */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between fields */
+}
+
+.form-control {
+    display: block; /* Ensure label is on a new line */
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding for comfort */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #4E9F3D; /* Border color */
+}
+
+/* Error Message Styles */
+.error-message {
+    color: #FF4C4C; /* Red color for error messages */
+}

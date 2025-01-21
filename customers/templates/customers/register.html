@@ -1,0 +1,25 @@
+{% extends 'customers/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h2>Register</h2>
+<div class="form-container">
+    <form method="POST" autocomplete="off"> <!-- Disable autofill -->
+        {% csrf_token %}
+        {{ form.non_field_errors }} <!-- Display non-field errors -->
+        
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }} <!-- Display label -->
+                {{ field }} <!-- Render field directly; styles are applied from forms.py -->
+                {% if field.errors %}
+                    <div class="error-message">{{ field.errors }}</div> <!-- Display errors -->
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+{% endblock %}

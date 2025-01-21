@@ -1,0 +1,18 @@
+{% extends 'customers/base.html' %}
+
+{% block title %}Request Status{% endblock %}
+
+{% block content %}
+<h2>Request Status</h2>
+<div class="status-box">
+    <strong>Request Type:</strong> {{ service_request.request_type }}<br>
+    <strong>Status:</strong> {{ service_request.status }}<br>
+    <strong>Description:</strong> {{ service_request.description }}<br>
+    <strong>Submitted On:</strong> {{ service_request.created_at|date:"Y-m-d H:i" }}<br>
+    {% if service_request.attachment %}
+        <strong>Attachment:</strong> <a href="{{ service_request.attachment.url }}" target="_blank">View Attachment</a><br>
+    {% endif %}
+</div>
+
+<a href="{% url 'dashboard' %}" class="btn">Back to Dashboard</a> <!-- Optional back button -->
+{% endblock %}
