@@ -15,9 +15,7 @@
                         <strong>Request Type:</strong> {{ request.request_type }}<br>
                         <strong>Status:</strong> {{ request.status }}<br>
                         <strong>Submitted On:</strong> {{ request.created_at|date:"Y-m-d H:i" }}<br>
-                        {% if request.attachment %}
-                            <strong>Attachment:</strong> <a href="{{ request.attachment.url }}" target="_blank">View Attachment</a><br>
-                        {% endif %}
+                       <br>
                         <a href="{% url 'request_status' request.id %}" class="btn">View Details</a>
                     </div>
                 {% endfor %}

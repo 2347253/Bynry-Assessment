@@ -19,7 +19,7 @@ def home(request):
 # Service request submission view
 def submit_request(request):
     if request.method == 'POST':
-        form = ServiceRequestForm(request.POST)
+        form = ServiceRequestForm(request.POST, request.FILES)  
         if form.is_valid():
             service_request = form.save(commit=False)
             service_request.customer = request.user  # Link to logged-in user

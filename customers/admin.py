@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import ServiceRequest
 
-# Register your models here.
+@admin.register(ServiceRequest)
+class ServiceRequestAdmin(admin.ModelAdmin):
+    list_display = ('request_type', 'status', 'created_at', 'customer')

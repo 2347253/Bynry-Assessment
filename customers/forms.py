@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 class ServiceRequestForm(forms.ModelForm):
     class Meta:
         model = ServiceRequest
-        fields = ['request_type', 'description']
+        fields = ['request_type', 'description', 'attachment']
 
     request_type = forms.ChoiceField(
         choices=ServiceRequest.REQUEST_TYPES,
