@@ -9,6 +9,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 from .models import ServiceRequest  # Ensure this import exists
+from .forms import CSRLoginForm
+
 
 
 
@@ -37,13 +39,20 @@ def request_status(request, request_id):
 # Login view
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = CSRLoginForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
+            csr_passphrase = form.cleaned_data.get('csr_passphrase')
+
+            # Set the CSR flag
+            user.is_csr = True if csr_passphrase else False
+            user.save()
+
             login(request, user)
-            return redirect('dashboard')  # Redirect to the dashboard after login
+            return redirect('support_dashboard' if user.is_csr else 'dashboard')
     else:
-        form = AuthenticationForm()
+        form = CSRLoginForm()
+
     return render(request, 'customers/login.html', {'form': form})
 
 # Register view

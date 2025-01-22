@@ -1,0 +1,35 @@
+<!-- support/templates/dashboard.html -->
+{% extends 'support/base.html' %}
+
+{% block title %}CSR Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the CSR Dashboard</h2>
+    <p>Here you can view and manage customer service requests.</p>
+
+    <h3>Active Service Requests</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Customer</th>
+                <th>Request Type</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in service_requests %}
+                <tr>
+                    <td>{{ request.id }}</td>
+                    <td>{{ request.customer.username }}</td>
+                    <td>{{ request.get_request_type_display }}</td>
+                    <td>{{ request.status }}</td>
+                    <td>
+                        <a href="{% url 'update_ticket' request.id %}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

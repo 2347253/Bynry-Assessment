@@ -3,6 +3,8 @@ from .models import ServiceRequest
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.hashers import check_password
+
 
 class ServiceRequestForm(forms.ModelForm):
     class Meta:
@@ -41,3 +43,19 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+class CSRLoginForm(AuthenticationForm):
+    csr_passphrase = forms.CharField(
+        max_length=50, 
+        required=False, 
+        widget=forms.PasswordInput(attrs={'placeholder': 'CSR Passphrase (optional)'})
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        csr_passphrase = cleaned_data.get('csr_passphrase')
+        if csr_passphrase:
+            from django.conf import settings
+            if not check_password(csr_passphrase, settings.CSR_HASH):
+                raise forms.ValidationError("Invalid CSR passphrase.")
+        return cleaned_data
